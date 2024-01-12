@@ -1,0 +1,1 @@
+Day 10: Django Project Setup (January 12)
