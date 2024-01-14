@@ -1,1 +1,2 @@
 Day 10: Django Project Setup (January 12)
+Day 11: Template Rendering (January 14)
