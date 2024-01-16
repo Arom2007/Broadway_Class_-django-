@@ -9,6 +9,7 @@ def home1(request):
 def home2(request):
     return HttpResponse("<h2>This is home 2.</h2>")
 
+
 def home3(request):
     return HttpResponse("<h3>This is home 3.</h3>")
 
@@ -19,3 +20,7 @@ def template_home(request):
 
 def template_home2(request):
     return render(request, template_name="my_app/newHome.html")
+
+
+def template_about_me(request):
+    return render(request, template_name="my_app/aboutme.html")
