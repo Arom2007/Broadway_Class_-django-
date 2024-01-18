@@ -4,3 +4,7 @@
     - Starts a local server to host django project.
 3. python manage.py startapp <app_name>
     - Creates a new app in django project.
+4. python manage.py makemigrations
+    - Creates migrations.
+5.python mange.py migrate
+    - Migrates the migrations and creates the table in the database.

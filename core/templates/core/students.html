@@ -1,0 +1,54 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h1>Students</h1>
+
+Name:{{ name }} <br>
+Email: {{ email }} <br>
+Age: {{ age }} <br>
+Address: {{ address }} <br>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Age</th>
+        <th scope="col">Address</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for student in students %}
+    <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{student.name}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.age}}</td>
+        <td>{{student.address}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<table class="table table-striped">
+    <h1>Class</h1>
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Section</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% for class in classes %}
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{class.Name}}</td>
+        <td>{{class.section}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

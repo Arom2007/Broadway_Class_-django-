@@ -1,3 +1,5 @@
 Day 10: Django Project Setup (January 12)
 Day 11: Template Rendering (January 14)
-Day 12: (January 16)
+Day 12: Static Load (January 16)
+Day 13: Context and Template Inheritance (January 17)
+Day 14: Django Models (January 18)

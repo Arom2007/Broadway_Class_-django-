@@ -24,3 +24,11 @@ def template_home2(request):
 
 def template_about_me(request):
     return render(request, template_name="my_app/aboutme.html")
+
+
+def index(request):
+    return render(request, template_name="my_app/index.html")
+
+def root_page(request):
+    return render(request, template_name="my_app/root_page.html")
+

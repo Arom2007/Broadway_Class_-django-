@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h1>Food Menu</h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item Name</th>
+        <th scope="col">Item Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in menu %}
+    <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{item.item}}</td>
+        <td>{{item.price}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
