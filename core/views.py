@@ -1,16 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Student, Menu
 def students(request):
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        age = request.POST.get("age")
+        address = request.POST.get("address")
+        Student.objects.create(name=name, email=email, age=age, address=address)
+        return redirect('students')
+
     students = Student.objects.all()  # [obj1, obj2, obj3]
-    classes = [
-        {"Name": "one", "section": "A"},
-        {"Name": "two", "section": "B"},
-        {"Name": "three", "section": "C"},
-        {"Name": "four", "section": "D"},
-        {"Name": "five", "section": "E"}
-    ]
-    return render(request, template_name='core/students.html', context={"students": students, "classes": classes,
-                                                                        "title": "Students"})
+    return render(request, template_name='core/students.html', context={"students": students, "title": "Students"})
 
 
 def menu(request):

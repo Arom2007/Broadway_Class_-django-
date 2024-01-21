@@ -9,7 +9,7 @@
 <!--Age: {{ age }} <br>-->
 <!--Address: {{ address }} <br>-->
 
-<form method="post" action="{% url 'students' %}">
+<form method="post" action="{% url 'crud_students' %}">
     {% csrf_token %}
     Name:<br>
     <input class="form form-control" name="name" style="width:300px"><br>
@@ -18,7 +18,16 @@
     Age:<br>
     <input class="form form-control" name="age" style="width:100px"><br>
     Address:<br>
-    <input class="form form-control" name="address" style="width:300px">
+    <input class="form form-control" name="address" style="width:300px"><br>
+     <div class="form-group col-md-4">
+      <label for="inputState">Classroom:</label>
+      <select id="inputState" class="form-control" name="classroom">
+        <option value="9">Choose Below</option>
+          {% for classroom in classrooms %}
+          <option  value="{{classroom.id}}">{{classroom.name}}</option>
+          {% endfor %}
+      </select>
+    </div><br>
     <button type="submit">Submit</button>
 </form>
 
@@ -30,6 +39,8 @@
         <th scope="col">Email</th>
         <th scope="col">Age</th>
         <th scope="col">Address</th>
+        <th scope="col">Classroom</th>
+        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>
@@ -40,6 +51,11 @@
         <td>{{student.email}}</td>
         <td>{{student.age}}</td>
         <td>{{student.address}}</td>
+        <td>{{student.classroom.name}}</td>
+        <td>
+            <a href="#">Update</a>
+            <a href="{% url 'delete_student' student.id %}">Delete</a>
+        </td>
     </tr>
     {% endfor %}
     </tbody>
