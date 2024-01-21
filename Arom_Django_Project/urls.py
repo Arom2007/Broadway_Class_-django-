@@ -24,6 +24,7 @@ from my_app.views import home3
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('core/', include("core.urls")),
+    path('crud/', include("crud.urls")),
     path('', include("my_app.urls")),
     path('home2/', home2),
     path('home3/', home3)
