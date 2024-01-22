@@ -16,6 +16,6 @@ def students(request):
 def menu(request):
     menu = Menu.objects.all()
 
-    return render(request, template_name='core/menu.html', context={"menu": menu, "title": "Food Menu"})
+    return render(request, template_name='core/menu.html', context={"menu": menu, "title": "Food Menu", "menu_active": "active"})
 
 

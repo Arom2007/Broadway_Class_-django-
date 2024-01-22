@@ -27,7 +27,7 @@
         <td>{{classroom.name}}</td>
 
         <td>
-            <a href="#">Update</a>
+            <a href="{% url 'update_classroom' classroom.id %}">Update</a>
             <a href="{% url 'delete_classroom' classroom.id %}">Delete</a>
         </td>
     </tr>
