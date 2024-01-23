@@ -74,7 +74,35 @@ def student_profile(request):
         student_id = request.POST.get("student")
         phone = request.POST.get("phone")
         roll = request.POST.get("roll")
-        StudentProfile.objects.create(student_id=student_id, phone=phone, roll_no=roll)
+        pp = request.FILES.get("pp")
+        sp = StudentProfile.objects.create(student_id=student_id, phone=phone, roll_no=roll)
+        if pp:
+            sp.profile_picture = pp
+            sp.save()
         return redirect("student_profile")
     return render(request, template_name="crud/student_profile.html", context={"profiles": profiles,
                                                                                "students": students, "profile_active": "active"})
+
+
+def delete_student_profile(request, id):
+    profiles = StudentProfile.objects.get(id=id)
+    if request.method == "POST":
+        profiles.delete()
+        return redirect('student_profile')
+    return render(request, template_name="crud/delete_student_profile.html", context={"profiles": profiles})
+
+
+def update_student_profile(request, id):
+    profiles = StudentProfile.objects.get(id=id)
+    if request.method == "POST":
+        phone = request.POST.get("phone")
+        roll = request.POST.get("roll")
+        StudentProfile.objects.filter(id=id).update(phone=phone, roll_no=roll)
+        return redirect('student_profile')
+    return render(request, template_name="crud/update_student_profile.html", context={"profiles": profiles})
+
+
+def detail_profile(request, id):
+    profile = StudentProfile.objects.get(id=id)
+
+    return render(request, template_name="crud/detail_profile.html", context={"profile": profile})

@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<form method="post" action="{% url 'update_student_profile' profiles.id %}">
+    {% csrf_token %}
+    Student Name:<br>
+    <input disabled value="{{ profiles.student.name }}" class="form form-control" name="student" style="width:300px"><br>
+    Phone Number:<br>
+    <input value="{{ profiles.phone }}" class="form form-control" name="phone" style="width:300px"><br>
+    Roll Number:<br>
+    <input value="{{ profiles.roll_no }}" class="form form-control" name="roll" style="width:100px"><br>
+    <button class="btn btn-danger" type="submit">Submit</button>
+    <a href="{% url 'student_profile' %}" class="btn btn-primary">Cancel</a>
+</form>
+
+{% endblock %}
