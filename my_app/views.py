@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 
 
 def home1(request):
@@ -28,7 +29,7 @@ def template_about_me(request):
 
 def index(request):
     return render(request, template_name="my_app/index.html")
-
+@login_required
 def root_page(request):
     return render(request, template_name="my_app/root_page.html")
 
