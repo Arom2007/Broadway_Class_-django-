@@ -23,11 +23,11 @@ from my_app.views import home3
 from django.conf import settings
 from django.conf.urls.static import static
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('core/', include("core.urls")),
     path('crud/', include("crud.urls")),
+    path('classbased/', include('classbased.urls')),
     path('', include("my_app.urls")),
     path('home2/', home2),
     path('home3/', home3)
