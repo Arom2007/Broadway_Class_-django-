@@ -2,6 +2,13 @@
 {% block content %}
 
 <h1>Students</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}<br>
+    <button type="submit">Submit</button>
+</form>
+
 <table class="table table-striped">
     <thead>
     <tr>
@@ -24,8 +31,8 @@
         <td>{{student.address}}</td>
         <td>{{student.classroom.name}}</td>
         <td>
-            <a href="#">Update</a>
-            <a href="#">Delete</a>
+            <a href="{% url 'classbased_student_update' student.id %}">Update</a>
+            <a href="{% url 'classbased_student_delete' student.id %}">Delete</a>
         </td>
     </tr>
     {% endfor %}
